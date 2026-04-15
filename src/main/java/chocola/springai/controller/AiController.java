@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
 
 @Slf4j
 @RestController
@@ -23,5 +24,10 @@ public class AiController {
     @PostMapping("/chat-model")
     public String chatModel(@RequestParam("question") String question) {
         return aiService.generateText(question);
+    }
+
+    @PostMapping("/chat-model-stream")
+    public Flux<String> chatModelStream(@RequestParam("question") String question) {
+        return aiService.generateTextStream(question);
     }
 }
