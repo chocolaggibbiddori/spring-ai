@@ -2,7 +2,6 @@ package chocola.springai.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.ai.model.openai.autoconfigure.OpenAiChatProperties;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
@@ -12,10 +11,9 @@ public class AiServiceByChatClient {
 
     private final ChatClient chatClient;
 
-    public AiServiceByChatClient(ChatClient.Builder chatClientBuilder, OpenAiChatProperties openAiChatProperties) {
+    public AiServiceByChatClient(ChatClient.Builder chatClientBuilder) {
         this.chatClient = chatClientBuilder
                 .defaultSystem("사용자 질문에 대해 한국어로 답변을 해야 합니다.")
-                .defaultOptions(openAiChatProperties.getOptions())
                 .build();
     }
 
