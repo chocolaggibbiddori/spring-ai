@@ -14,7 +14,8 @@ import reactor.core.publisher.Flux;
 @RequiredArgsConstructor
 public class AiController {
 
-    private final AiService aiService;
+//    private final AiService aiService;
+    private final AiServiceByChatClient aiService;
 
     @PostMapping("/chat")
     public String chat(@RequestParam("question") String question) {
