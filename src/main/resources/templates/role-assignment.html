@@ -24,13 +24,13 @@
         springai.setSpinner("spinner", true);
 
         // AJAX 요청하고 응답받기
-        const response = await fetch('/ai/chat-model-stream', {
+        const response = await fetch('/ai/role-assignment', {
           method: "post",
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Accept': 'application/x-ndjson' //라인으로 구분된 청크 텍스트
+            'Accept': 'application/x-ndjson'
           },
-          body: new URLSearchParams({question})
+          body: new URLSearchParams({requirements: question})
         });
 
         // AI 모델 답변이 들어갈 위치를 대화 패널에 추가
@@ -64,7 +64,7 @@
         <table>
           <tr>
             <td><img src="/image/assistant.png" width="50"/></td>
-            <td><span>질문을 올려주세요.</span></td>
+            <td><span>여행하고 싶은 위치와 방문하고 싶은 장소 유형에 대해 알려주세요.</span></td>
           </tr>
         </table>
       </div>
@@ -72,8 +72,8 @@
 
     <div id="inputPanel" class="bg-secondary-subtle">
       <div class="input-group p-2">
-        <span class="input-group-text">질문</span>
-        <textarea id="question" class="form-control">Spring AI에 대해 300자 이내로 설명해줘</textarea>
+        <span class="input-group-text">요청 사항</span>
+        <textarea id="question" class="form-control">저는 암스테르담에 있으며, 오직 박물관만 방문하고 싶습니다.</textarea>
         <span class="input-group-text">
           <button type="button" class="btn btn-primary" onclick="handleSubmit()">제출</button>
         </span>

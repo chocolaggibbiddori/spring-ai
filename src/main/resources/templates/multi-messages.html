@@ -24,11 +24,11 @@
         springai.setSpinner("spinner", true);
 
         // AJAX 요청하고 응답받기
-        const response = await fetch('/ai/chat-model-stream', {
+        const response = await fetch('/ai/multi-messages', {
           method: "post",
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Accept': 'application/x-ndjson' //라인으로 구분된 청크 텍스트
+            'Accept': 'text/plain'
           },
           body: new URLSearchParams({question})
         });
@@ -73,7 +73,7 @@
     <div id="inputPanel" class="bg-secondary-subtle">
       <div class="input-group p-2">
         <span class="input-group-text">질문</span>
-        <textarea id="question" class="form-control">Spring AI에 대해 300자 이내로 설명해줘</textarea>
+        <textarea id="question" class="form-control">지금부터 너의 이름을 자비스라고 부를게.</textarea>
         <span class="input-group-text">
           <button type="button" class="btn btn-primary" onclick="handleSubmit()">제출</button>
         </span>

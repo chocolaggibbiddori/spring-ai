@@ -24,20 +24,21 @@
         springai.setSpinner("spinner", true);
 
         // AJAX 요청하고 응답받기
-        const response = await fetch('/ai/chat-model-stream', {
+        const response = await fetch('/ai/few-shot-prompt', {
           method: "post",
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Accept': 'application/x-ndjson' //라인으로 구분된 청크 텍스트
+            'Accept': 'application/json'
           },
-          body: new URLSearchParams({question})
+          body: new URLSearchParams({order: question})
         });
 
         // AI 모델 답변이 들어갈 위치를 대화 패널에 추가
         const uuid = springai.addAnswerPlaceHolder("chatPanel");
 
-        // 텍스트 답변 출력하기
-        springai.printAnswerText(response.body, uuid, "chatPanel");
+        // JSON 답변 출력하기
+        const jsonString = await response.text();
+        springai.printAnswerJson(jsonString, uuid, "chatPanel");
       } catch (error) {
         console.log(error)
       } finally {
@@ -64,7 +65,7 @@
         <table>
           <tr>
             <td><img src="/image/assistant.png" width="50"/></td>
-            <td><span>질문을 올려주세요.</span></td>
+            <td><span>주문을 해주세요.</span></td>
           </tr>
         </table>
       </div>
@@ -72,8 +73,10 @@
 
     <div id="inputPanel" class="bg-secondary-subtle">
       <div class="input-group p-2">
-        <span class="input-group-text">질문</span>
-        <textarea id="question" class="form-control">Spring AI에 대해 300자 이내로 설명해줘</textarea>
+        <span class="input-group-text">주문</span>
+        <textarea
+            id="question" type="text" class="form-control"
+        >큰 피자 하나, 절반은 치즈랑 모짜렐라로, 나머지 절반은 토마토 소스랑 햄, 파인애플로 주세요.</textarea>
         <span class="input-group-text">
           <button type="button" class="btn btn-primary" onclick="handleSubmit()">제출</button>
         </span>
