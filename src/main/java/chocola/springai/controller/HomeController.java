@@ -50,4 +50,9 @@ public class HomeController {
     public String roleAssignment() {
         return "role-assignment";
     }
+
+    @GetMapping("/step-back-prompt")
+    public String stepBackPrompt() {
+        return "step-back-prompt";
+    }
 }
