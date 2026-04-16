@@ -1,5 +1,6 @@
 package chocola.springai.controller;
 
+import chocola.springai.service.AiServicePromptTemplate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
