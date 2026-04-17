@@ -70,4 +70,9 @@ public class HomeController {
     public String listOutputConverter() {
         return "list-output-converter";
     }
+
+    @GetMapping("/bean-output-converter")
+    public String beanOutputConverter() {
+        return "bean-output-converter";
+    }
 }
