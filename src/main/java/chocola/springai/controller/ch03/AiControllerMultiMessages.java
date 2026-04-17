@@ -1,6 +1,6 @@
-package chocola.springai.controller;
+package chocola.springai.controller.ch03;
 
-import chocola.springai.service.AiServiceMultiMessage;
+import chocola.springai.service.ch03.AiServiceMultiMessage;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package chocola.springai.controller;
+package chocola.springai.controller.ch03;
 
-import chocola.springai.service.AiServiceStepBackPrompt;
+import chocola.springai.service.ch03.AiServiceStepBackPrompt;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,4 +1,4 @@
-package chocola.springai.service;
+package chocola.springai.service.ch03;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;

@@ -1,4 +1,4 @@
-package chocola.springai.service;
+package chocola.springai.service.ch03;
 
 import java.util.Map;
 import org.springframework.ai.chat.client.ChatClient;

@@ -1,6 +1,6 @@
-package chocola.springai.controller;
+package chocola.springai.controller.ch03;
 
-import chocola.springai.service.AiServiceFewShotPrompt;
+import chocola.springai.service.ch03.AiServiceFewShotPrompt;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

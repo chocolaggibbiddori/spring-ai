@@ -1,4 +1,4 @@
-package chocola.springai.service;
+package chocola.springai.service.ch03;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;

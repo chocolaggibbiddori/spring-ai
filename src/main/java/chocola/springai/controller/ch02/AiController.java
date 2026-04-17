@@ -1,6 +1,6 @@
-package chocola.springai.controller;
+package chocola.springai.controller.ch02;
 
-import chocola.springai.service.AiServiceByChatClient;
+import chocola.springai.service.ch02.AiServiceByChatClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;

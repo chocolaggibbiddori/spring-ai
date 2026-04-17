@@ -1,6 +1,6 @@
-package chocola.springai.controller;
+package chocola.springai.controller.ch03;
 
-import chocola.springai.service.AiServiceSelfConsistency;
+import chocola.springai.service.ch03.AiServiceSelfConsistency;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
