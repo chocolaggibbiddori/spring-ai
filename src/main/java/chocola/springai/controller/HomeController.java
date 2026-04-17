@@ -65,4 +65,9 @@ public class HomeController {
     public String selfConsistency() {
         return "self-consistency";
     }
+
+    @GetMapping("/list-output-converter")
+    public String listOutputConverter() {
+        return "list-output-converter";
+    }
 }
