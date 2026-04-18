@@ -28,3 +28,10 @@ spring:
         options:
           temperature: 0.3
           max-tokens: 1000
+      audio:
+        transcription:
+          options:
+            language: ko
+        speech:
+          options:
+            voice: alloy

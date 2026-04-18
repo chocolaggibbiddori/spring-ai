@@ -90,4 +90,9 @@ public class HomeController {
     public String systemMessage() {
         return "system-message";
     }
+
+    @GetMapping("/stt-tts")
+    public String sttTts() {
+        return "stt-tts";
+    }
 }
