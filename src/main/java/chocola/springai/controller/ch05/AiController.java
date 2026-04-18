@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.Resource;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,5 +50,13 @@ public class AiController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @PostMapping("/chat-voice-one-model")
+    public byte[] chatVoiceOneModel(@RequestParam("question") MultipartFile question) {
+        Resource resource = question.getResource();
+        String contentType = question.getContentType();
+
+        return aiService.chatVoiceOneModel(resource, contentType);
     }
 }
