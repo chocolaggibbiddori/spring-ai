@@ -100,4 +100,9 @@ public class HomeController {
     public String sttLlmTts() {
         return "stt-llm-tts";
     }
+
+    @GetMapping("/chat-voice-stt-llm-tts")
+    public String chatVoiceSttLlmTts() {
+        return "chat-voice-stt-llm-tts";
+    }
 }
