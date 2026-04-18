@@ -95,4 +95,9 @@ public class HomeController {
     public String sttTts() {
         return "stt-tts";
     }
+
+    @GetMapping("/stt-llm-tts")
+    public String sttLlmTts() {
+        return "stt-llm-tts";
+    }
 }

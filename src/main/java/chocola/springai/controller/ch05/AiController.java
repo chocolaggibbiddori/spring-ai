@@ -1,6 +1,7 @@
 package chocola.springai.controller.ch05;
 
 import chocola.springai.service.ch05.AiService;
+import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,5 +24,10 @@ public class AiController {
     @PostMapping("/tts")
     public byte[] tts(@RequestParam("text") String text) {
         return aiService.tts(text);
+    }
+
+    @PostMapping("/chat-text")
+    public Map<String, String> chatText(@RequestParam("question") String question) {
+        return aiService.chatText(question);
     }
 }
