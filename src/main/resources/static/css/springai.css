@@ -11,3 +11,15 @@ pre {
   white-space: pre-wrap; /* 줄 바꿈을 처리하여 긴 JSON도 화면에 맞게 표시 */
   word-wrap: break-word;
 }
+
+.overlay-container {
+  position: relative;
+  display: inline-block;
+}
+
+.overlay-container canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: crosshair;
+}

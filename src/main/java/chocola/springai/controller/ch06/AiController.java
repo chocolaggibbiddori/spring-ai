@@ -1,6 +1,7 @@
 package chocola.springai.controller.ch06;
 
 import chocola.springai.service.ch06.AiService;
+import java.io.IOException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,5 +37,12 @@ public class AiController {
     @PostMapping("/image-generate")
     public String imageGenerate(@RequestParam("description") String description) {
         return aiService.generateImage(description);
+    }
+
+    @PostMapping("/image-edit")
+    public String imageEdit(@RequestParam("description") String description,
+                            @RequestParam("originalImage") MultipartFile originalImage,
+                            @RequestParam("maskImage") MultipartFile maskImage) throws IOException {
+        return aiService.editImage(description, originalImage.getBytes(), maskImage.getBytes());
     }
 }
