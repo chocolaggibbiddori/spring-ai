@@ -32,4 +32,9 @@ public class AiController {
         Resource resource = attach.getResource();
         return aiService.imageAnalysis(question, contentType, resource);
     }
+
+    @PostMapping("/image-generate")
+    public String imageGenerate(@RequestParam("description") String description) {
+        return aiService.generateImage(description);
+    }
 }

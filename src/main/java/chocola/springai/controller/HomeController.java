@@ -120,4 +120,9 @@ public class HomeController {
     public String videoAnalysis() {
         return "video-analysis";
     }
+
+    @GetMapping("/image-generation")
+    public String imageGeneration() {
+        return "image-generation";
+    }
 }
