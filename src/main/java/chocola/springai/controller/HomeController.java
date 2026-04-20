@@ -110,4 +110,9 @@ public class HomeController {
     public String chatVoiceOneModel() {
         return "chat-voice-one-model";
     }
+
+    @GetMapping("/image-analysis")
+    public String imageAnalysis() {
+        return "image-analysis";
+    }
 }
