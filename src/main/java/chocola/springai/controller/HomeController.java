@@ -136,4 +136,8 @@ public class HomeController {
         return "advisor-chain-stream";
     }
 
+    @GetMapping("/advisor-context")
+    public String advisorContext() {
+        return "advisor-context";
+    }
 }
