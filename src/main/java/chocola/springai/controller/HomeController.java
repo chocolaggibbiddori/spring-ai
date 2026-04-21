@@ -125,4 +125,15 @@ public class HomeController {
     public String imageGeneration() {
         return "image-generation";
     }
+
+    @GetMapping("/advisor-chain")
+    public String advisorChain() {
+        return "advisor-chain";
+    }
+
+    @GetMapping("/advisor-chain-stream")
+    public String advisorChainStream() {
+        return "advisor-chain-stream";
+    }
+
 }
