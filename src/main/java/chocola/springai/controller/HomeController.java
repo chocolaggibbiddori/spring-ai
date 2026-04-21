@@ -140,4 +140,9 @@ public class HomeController {
     public String advisorContext() {
         return "advisor-context";
     }
+
+    @GetMapping("/advisor-logging")
+    public String advisorLogging() {
+        return "advisor-logging";
+    }
 }

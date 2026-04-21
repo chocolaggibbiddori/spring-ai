@@ -2,6 +2,7 @@ package chocola.springai.controller.ch07;
 
 import chocola.springai.service.ch07.AiService1;
 import chocola.springai.service.ch07.AiService2;
+import chocola.springai.service.ch07.AiService3;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,7 @@ public class AiController {
 
     private final AiService1 aiService1;
     private final AiService2 aiService2;
+    private final AiService3 aiService3;
 
     @PostMapping("/advisor-chain")
     public String advisorChain(String question) {
@@ -31,5 +33,10 @@ public class AiController {
     @PostMapping("/advisor-context")
     public String advisorContext(String question) {
         return aiService2.advisorContext(question);
+    }
+
+    @PostMapping("/advisor-logging")
+    public String advisorLogging(String question) {
+        return aiService3.advisorLogging(question);
     }
 }

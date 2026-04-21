@@ -3,6 +3,13 @@ server:
 logging:
   pattern:
     console: "%clr(%-5level){green} %clr(%logger.%M\\(\\)){cyan} %msg%n"
+  level:
+    org:
+      springframework:
+        ai:
+          chat:
+            client:
+              advisor: DEBUG
 spring:
   application:
     name: springai
