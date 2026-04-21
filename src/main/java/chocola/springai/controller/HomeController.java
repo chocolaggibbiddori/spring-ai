@@ -145,4 +145,9 @@ public class HomeController {
     public String advisorLogging() {
         return "advisor-logging";
     }
+
+    @GetMapping("/advisor-safe-guard")
+    public String advisorSafeGuard() {
+        return "advisor-safe-guard";
+    }
 }
