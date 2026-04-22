@@ -170,4 +170,9 @@ public class HomeController {
     public String searchDocument2() {
         return "search-document-2";
     }
+
+    @GetMapping("/delete-document")
+    public String deleteDocument() {
+        return "delete-document";
+    }
 }

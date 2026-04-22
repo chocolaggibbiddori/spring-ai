@@ -58,4 +58,10 @@ public class AiController {
                 </div>
                 """.formatted(score, text, year);
     }
+
+    @PostMapping("/delete-document")
+    public String deleteDocument() {
+        aiService.deleteDocument();
+        return "Document가 삭제되었습니다.";
+    }
 }

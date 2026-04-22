@@ -60,4 +60,8 @@ public class AiService {
                         .filterExpression("source == '헌법' && year >= 1987")
                         .build());
     }
+
+    public void deleteDocument() {
+        vectorStore.delete("source == '헌법' && year < 1987");
+    }
 }
