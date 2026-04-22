@@ -8,6 +8,7 @@ import org.springframework.ai.document.Document;
 import org.springframework.ai.embedding.EmbeddingModel;
 import org.springframework.ai.embedding.EmbeddingResponse;
 import org.springframework.ai.embedding.EmbeddingResponseMetadata;
+import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.stereotype.Service;
 
@@ -43,5 +44,20 @@ public class AiService {
         );
 
         vectorStore.add(documentList);
+    }
+
+    public List<Document> searchDocument1(String question) {
+        return vectorStore.similaritySearch(question);
+    }
+
+    public List<Document> searchDocument2(String question) {
+        return vectorStore.similaritySearch(
+                SearchRequest
+                        .builder()
+                        .query(question)
+                        .topK(1)
+                        .similarityThreshold(0.4)
+                        .filterExpression("source == '헌법' && year >= 1987")
+                        .build());
     }
 }

@@ -160,4 +160,14 @@ public class HomeController {
     public String addDocument() {
         return "add-document";
     }
+
+    @GetMapping("/search-document-1")
+    public String searchDocument1() {
+        return "search-document-1";
+    }
+
+    @GetMapping("/search-document-2")
+    public String searchDocument2() {
+        return "search-document-2";
+    }
 }
