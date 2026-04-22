@@ -150,4 +150,9 @@ public class HomeController {
     public String advisorSafeGuard() {
         return "advisor-safe-guard";
     }
+
+    @GetMapping("/text-embedding")
+    public String textEmbedding() {
+        return "text-embedding";
+    }
 }
