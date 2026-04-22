@@ -175,4 +175,9 @@ public class HomeController {
     public String deleteDocument() {
         return "delete-document";
     }
+
+    @GetMapping("/image-embedding")
+    public String imageEmbedding() {
+        return "image-embedding";
+    }
 }

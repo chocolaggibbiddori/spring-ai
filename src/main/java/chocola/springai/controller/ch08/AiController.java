@@ -3,11 +3,14 @@ package chocola.springai.controller.ch08;
 import static java.util.stream.Collectors.joining;
 
 import chocola.springai.service.ch08.AiService;
+import chocola.springai.service.ch08.FaceService;
+import java.io.IOException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.document.Document;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController("aiController-ch08")
 @RequestMapping("/ai")
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AiController {
 
     private final AiService aiService;
+    private final FaceService faceService;
 
     @PostMapping("/text-embedding")
     public String textEmbedding(String question) {
@@ -63,5 +67,19 @@ public class AiController {
     public String deleteDocument() {
         aiService.deleteDocument();
         return "Document가 삭제되었습니다.";
+    }
+
+    @PostMapping("/add-face")
+    public String addFace(String personName, MultipartFile[] attach) throws IOException {
+        for (MultipartFile file : attach) {
+            faceService.addFace(personName, file);
+        }
+
+        return "얼굴이 저장되었습니다.";
+    }
+
+    @PostMapping("/find-face")
+    public String findFace(MultipartFile attach) throws IOException {
+        return faceService.findFace(attach);
     }
 }
