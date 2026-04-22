@@ -18,4 +18,10 @@ public class AiController {
         aiService.textEmbedding(question);
         return "서버 터미널 출력을 확인하세요.";
     }
+
+    @PostMapping("/add-document")
+    public String addDocument() {
+        aiService.addDocument();
+        return "벡터 저장소에 Document가 저장되었습니다.";
+    }
 }

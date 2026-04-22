@@ -155,4 +155,9 @@ public class HomeController {
     public String textEmbedding() {
         return "text-embedding";
     }
+
+    @GetMapping("/add-document")
+    public String addDocument() {
+        return "add-document";
+    }
 }
