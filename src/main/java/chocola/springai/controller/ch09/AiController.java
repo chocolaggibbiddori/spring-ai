@@ -18,4 +18,9 @@ public class AiController {
     public String inMemoryChatMemory(String question, HttpSession session) {
         return aiService.chatInMemory(question, session.getId());
     }
+
+    @PostMapping("/vector-store-chat")
+    public String vectorStoreChat(String question, HttpSession session) {
+        return aiService.chatVectorStore(question, session.getId());
+    }
 }
