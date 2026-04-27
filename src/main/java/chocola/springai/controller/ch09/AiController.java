@@ -23,4 +23,9 @@ public class AiController {
     public String vectorStoreChat(String question, HttpSession session) {
         return aiService.chatVectorStore(question, session.getId());
     }
+
+    @PostMapping("/rdbms-chat")
+    public String rdbmsChat(String question, HttpSession session) {
+        return aiService.chatRdbms(question, session.getId());
+    }
 }

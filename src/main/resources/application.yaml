@@ -51,3 +51,8 @@ spring:
         initialize-schema: false
         table-name: chat_memory_vector_store
         dimensions: 1536
+    chat:
+      memory:
+        repository:
+          jdbc:
+            initialize-schema: always
