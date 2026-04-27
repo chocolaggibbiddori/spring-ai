@@ -16,7 +16,7 @@ public class AiController {
 
     @PostMapping("/in-memory-chat")
     public String inMemoryChatMemory(String question, HttpSession session) {
-        return aiService.chatInMemory(question, session.getId());
+        return aiService.chatChatMemory(question, session.getId());
     }
 
     @PostMapping("/vector-store-chat")
@@ -26,6 +26,11 @@ public class AiController {
 
     @PostMapping("/rdbms-chat")
     public String rdbmsChat(String question, HttpSession session) {
-        return aiService.chatRdbms(question, session.getId());
+        return aiService.chatChatMemory(question, session.getId());
+    }
+
+    @PostMapping("/cassandra-chat")
+    public String cassandraChat(String question, HttpSession session) {
+        return aiService.chatChatMemory(question, session.getId());
     }
 }
