@@ -22,4 +22,16 @@ public class AiController {
                                 @RequestParam MultipartFile attach) throws IOException {
         return etlService.etlFromFile(title, author, attach);
     }
+
+    @PostMapping("/html-etl")
+    public String htmlEtl(@RequestParam String title,
+                          @RequestParam String author,
+                          @RequestParam String url) throws IOException {
+        return etlService.etlFromHtml(title, author, url);
+    }
+
+    @PostMapping("/json-etl")
+    public String jsonEtl(@RequestParam String url) throws IOException {
+        return etlService.etlFromJson(url);
+    }
 }

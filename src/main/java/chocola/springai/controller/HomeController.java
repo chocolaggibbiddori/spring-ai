@@ -185,4 +185,14 @@ public class HomeController {
     public String txtPdfWordEtl() {
         return "ch10/txt-pdf-word-etl";
     }
+
+    @GetMapping("/html-etl")
+    public String htmlEtl() {
+        return "ch10/html-etl";
+    }
+
+    @GetMapping("/json-etl")
+    public String jsonEtl() {
+        return "ch10/json-etl";
+    }
 }

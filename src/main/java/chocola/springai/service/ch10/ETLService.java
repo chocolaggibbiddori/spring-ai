@@ -1,6 +1,8 @@
 package chocola.springai.service.ch10;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -9,12 +11,17 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.model.transformer.KeywordMetadataEnricher;
+import org.springframework.ai.reader.JsonMetadataGenerator;
+import org.springframework.ai.reader.JsonReader;
 import org.springframework.ai.reader.TextReader;
+import org.springframework.ai.reader.jsoup.JsoupDocumentReader;
+import org.springframework.ai.reader.jsoup.config.JsoupDocumentReaderConfig;
 import org.springframework.ai.reader.pdf.PagePdfDocumentReader;
 import org.springframework.ai.reader.tika.TikaDocumentReader;
 import org.springframework.ai.transformer.splitter.TokenTextSplitter;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -43,7 +50,6 @@ public class ETLService {
         }
 
         documentList = transform(documentList);
-        log.info("변환된 Document 수: {} 개", documentList.size());
 
         vectorStore.add(documentList);
 
@@ -66,7 +72,56 @@ public class ETLService {
         TokenTextSplitter tokenTextSplitter = new TokenTextSplitter();
         documentList = tokenTextSplitter.split(documentList);
 
-        KeywordMetadataEnricher keywordMetadataEnricher = new KeywordMetadataEnricher(chatModel, 5);
-        return keywordMetadataEnricher.transform(documentList);
+//        KeywordMetadataEnricher keywordMetadataEnricher = new KeywordMetadataEnricher(chatModel, 5);
+//        documentList = keywordMetadataEnricher.transform(documentList);
+
+        log.info("변환된 Document 수: {} 개", documentList.size());
+        return documentList;
+    }
+
+    public String etlFromHtml(String title, String author, String url) throws MalformedURLException {
+        UrlResource resource = new UrlResource(url);
+        JsoupDocumentReader jsoupDocumentReader = new JsoupDocumentReader(
+                resource,
+                JsoupDocumentReaderConfig
+                        .builder()
+                        .charset("UTF-8")
+                        .selector("#content")
+                        .additionalMetadata(
+                                Map.of(
+                                        "title", title,
+                                        "author", author,
+                                        "url", url))
+                        .build());
+
+        List<Document> documentList = jsoupDocumentReader.read();
+        log.info("추출된 Document 수: {} 개", documentList.size());
+
+        documentList = transform(documentList);
+
+        vectorStore.add(documentList);
+
+        return "HTML에서 추출-변환-적재 완료했습니다.";
+    }
+
+    public String etlFromJson(String url) throws MalformedURLException {
+        UrlResource resource = new UrlResource(url);
+        JsonReader jsonReader = new JsonReader(
+                resource,
+                map -> Map.of(
+                        "url", url,
+                        "title", map.get("title"),
+                        "author", map.get("author")
+                ),
+                "date", "content");
+
+        List<Document> documentList = jsonReader.read();
+        log.info("추출된 Document 수: {} 개", documentList.size());
+
+        documentList = transform(documentList);
+
+        vectorStore.add(documentList);
+
+        return "JSON에서 추출-변환-적재 완료했습니다.";
     }
 }
