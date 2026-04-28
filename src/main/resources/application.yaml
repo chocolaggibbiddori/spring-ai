@@ -50,9 +50,12 @@ spring:
         speech:
           options:
             voice: alloy
+      embedding:
+        options:
+          model: text-embedding-3-small
     vectorstore:
       pgvector:
-        initialize-schema: false
+        initialize-schema: true
         table-name: chat_memory_vector_store
         dimensions: 1536
     chat:
