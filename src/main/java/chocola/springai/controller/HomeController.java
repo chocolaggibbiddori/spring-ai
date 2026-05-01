@@ -200,4 +200,9 @@ public class HomeController {
     public String rag() {
         return "ch10/rag";
     }
+
+    @GetMapping("/compression-query-transformer")
+    public String compressionQueryTransformer() {
+        return "ch10/compression-query-transformer";
+    }
 }
