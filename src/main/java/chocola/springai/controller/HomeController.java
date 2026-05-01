@@ -195,4 +195,9 @@ public class HomeController {
     public String jsonEtl() {
         return "ch10/json-etl";
     }
+
+    @GetMapping("/rag")
+    public String rag() {
+        return "ch10/rag";
+    }
 }
