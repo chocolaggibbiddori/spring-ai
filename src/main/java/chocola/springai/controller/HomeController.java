@@ -210,4 +210,9 @@ public class HomeController {
     public String rewriteQueryTransformer() {
         return "ch10/rewrite-query-transformer";
     }
+
+    @GetMapping("/translation-query-transformer")
+    public String translationQueryTransformer() {
+        return "ch10/translation-query-transformer";
+    }
 }

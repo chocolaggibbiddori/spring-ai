@@ -73,4 +73,11 @@ public class AiController {
                                           @RequestParam String source) {
         return ragService2.chatWithRewriteQuery(question, score, source);
     }
+
+    @PostMapping("/translation-query-transformer")
+    public String translationQueryTransformer(@RequestParam String question,
+                                              @RequestParam(defaultValue = "0.0") double score,
+                                              @RequestParam String source) {
+        return ragService2.chatWithTranslation(question, score, source);
+    }
 }
