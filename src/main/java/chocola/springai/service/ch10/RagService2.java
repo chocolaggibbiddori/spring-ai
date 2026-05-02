@@ -8,6 +8,7 @@ import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.rag.advisor.RetrievalAugmentationAdvisor;
 import org.springframework.ai.rag.preretrieval.query.transformation.CompressionQueryTransformer;
+import org.springframework.ai.rag.preretrieval.query.transformation.RewriteQueryTransformer;
 import org.springframework.ai.rag.retrieval.search.VectorStoreDocumentRetriever;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.ai.vectorstore.filter.Filter.Expression;
@@ -68,6 +69,28 @@ public class RagService2 {
                 .prompt(question)
                 .advisors(messageChatMemoryAdvisor, retrievalAugmentationAdvisor)
                 .advisors(spec -> spec.param(ChatMemory.CONVERSATION_ID, conversationId))
+                .call()
+                .content();
+    }
+
+    private RewriteQueryTransformer createRewriteQueryTransformer() {
+        Builder builder = ChatClient
+                .builder(chatModel)
+                .defaultAdvisors(new SimpleLoggerAdvisor(Ordered.LOWEST_PRECEDENCE - 1));
+
+        return new RewriteQueryTransformer(builder, null, null);
+    }
+
+    public String chatWithRewriteQuery(String question, double score, String source) {
+        RetrievalAugmentationAdvisor retrievalAugmentationAdvisor = RetrievalAugmentationAdvisor
+                .builder()
+                .queryTransformers(createRewriteQueryTransformer())
+                .documentRetriever(createVectorStoreDocumentRetriever(score, source))
+                .build();
+
+        return chatClient
+                .prompt(question)
+                .advisors(retrievalAugmentationAdvisor)
                 .call()
                 .content();
     }

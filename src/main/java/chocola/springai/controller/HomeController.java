@@ -205,4 +205,9 @@ public class HomeController {
     public String compressionQueryTransformer() {
         return "ch10/compression-query-transformer";
     }
+
+    @GetMapping("/rewrite-query-transformer")
+    public String rewriteQueryTransformer() {
+        return "ch10/rewrite-query-transformer";
+    }
 }

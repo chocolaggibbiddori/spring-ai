@@ -66,4 +66,11 @@ public class AiController {
                                               HttpSession httpSession) {
         return ragService2.chatWithCompression(question, score, source, httpSession.getId());
     }
+
+    @PostMapping("/rewrite-query-transformer")
+    public String rewriteQueryTransformer(@RequestParam String question,
+                                          @RequestParam(defaultValue = "0.0") double score,
+                                          @RequestParam String source) {
+        return ragService2.chatWithRewriteQuery(question, score, source);
+    }
 }
