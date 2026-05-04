@@ -80,4 +80,11 @@ public class AiController {
                                               @RequestParam String source) {
         return ragService2.chatWithTranslation(question, score, source);
     }
+
+    @PostMapping("/multi-query-expander")
+    public String multiQueryExpander(@RequestParam String question,
+                                     @RequestParam(defaultValue = "0.0") double score,
+                                     @RequestParam String source) {
+        return ragService2.chatWithMultiQuery(question, score, source);
+    }
 }

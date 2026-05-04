@@ -215,4 +215,9 @@ public class HomeController {
     public String translationQueryTransformer() {
         return "ch10/translation-query-transformer";
     }
+
+    @GetMapping("/multi-query-expander")
+    public String multiQueryExpander() {
+        return "ch10/multi-query-expander";
+    }
 }
