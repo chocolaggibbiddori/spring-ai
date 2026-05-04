@@ -10,6 +10,7 @@ logging:
           chat:
             client:
               advisor: DEBUG
+          tool: DEBUG
 spring:
   application:
     name: springai
