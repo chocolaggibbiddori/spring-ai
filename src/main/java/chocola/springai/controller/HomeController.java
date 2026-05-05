@@ -245,4 +245,9 @@ public class HomeController {
     public String boomBarrierTools() {
         return "ch11/boom-barrier-tools";
     }
+
+    @GetMapping("/file-system-tools")
+    public String fileSystemTools() {
+        return "ch11/file-system-tools";
+    }
 }

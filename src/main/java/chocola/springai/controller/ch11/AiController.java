@@ -1,9 +1,7 @@
 package chocola.springai.controller.ch11;
 
-import chocola.springai.service.ch11.BoomBarrierService;
-import chocola.springai.service.ch11.DateTimeService;
-import chocola.springai.service.ch11.HeatingSystemService;
-import chocola.springai.service.ch11.RecommendMovieService;
+import chocola.springai.service.ch11.*;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +19,7 @@ public class AiController {
     private final HeatingSystemService heatingSystemService;
     private final RecommendMovieService recommendMovieService;
     private final BoomBarrierService boomBarrierService;
+    private final FileSystemService fileSystemService;
 
     @PostMapping("/date-time-tools")
     public String dateTimeTools(@RequestParam String question) {
@@ -52,5 +51,10 @@ public class AiController {
         byte[] bytes = attach.getBytes();
 
         return boomBarrierService.chat(contentType, bytes);
+    }
+
+    @PostMapping("/file-system-tools")
+    public String fileSystemTools(@RequestParam String question, HttpSession httpSession) {
+        return fileSystemService.chat(question, httpSession.getId());
     }
 }
