@@ -230,4 +230,9 @@ public class HomeController {
     public String heatingSystemTools() {
         return "ch11/heating-system-tools";
     }
+
+    @GetMapping("/recommend-movie-tools")
+    public String recommendMovieTools() {
+        return "ch11/recommend-movie-tools";
+    }
 }
