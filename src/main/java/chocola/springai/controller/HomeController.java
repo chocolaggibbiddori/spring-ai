@@ -225,4 +225,9 @@ public class HomeController {
     public String dateTimeTools() {
         return "ch11/date-time-tools";
     }
+
+    @GetMapping("/heating-system-tools")
+    public String heatingSystemTools() {
+        return "ch11/heating-system-tools";
+    }
 }
