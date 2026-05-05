@@ -20,6 +20,7 @@ public class AiController {
     private final RecommendMovieService recommendMovieService;
     private final BoomBarrierService boomBarrierService;
     private final FileSystemService fileSystemService;
+    private final InternetSearchService internetSearchService;
 
     @PostMapping("/date-time-tools")
     public String dateTimeTools(@RequestParam String question) {
@@ -56,5 +57,10 @@ public class AiController {
     @PostMapping("/file-system-tools")
     public String fileSystemTools(@RequestParam String question, HttpSession httpSession) {
         return fileSystemService.chat(question, httpSession.getId());
+    }
+
+    @PostMapping("/internet-search-tools")
+    public String internetSearchTools(@RequestParam String question) {
+        return internetSearchService.chat(question);
     }
 }

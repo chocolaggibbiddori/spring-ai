@@ -250,4 +250,9 @@ public class HomeController {
     public String fileSystemTools() {
         return "ch11/file-system-tools";
     }
+
+    @GetMapping("/internet-search-tools")
+    public String internetSearchTools() {
+        return "ch11/internet-search-tools";
+    }
 }
