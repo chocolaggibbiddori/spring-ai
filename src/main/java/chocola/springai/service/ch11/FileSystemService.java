@@ -1,6 +1,6 @@
 package chocola.springai.service.ch11;
 
-import chocola.springai.service.ch11.tools.FileSystemTools;
+import chocola.springai.service.ch11.tool.FileSystemTools;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 import org.springframework.ai.chat.memory.ChatMemory;

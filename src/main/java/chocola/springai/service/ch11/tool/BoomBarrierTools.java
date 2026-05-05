@@ -1,4 +1,4 @@
-package chocola.springai.service.ch11.tools;
+package chocola.springai.service.ch11.tool;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.tool.annotation.Tool;

@@ -1,6 +1,6 @@
 package chocola.springai.service.ch11;
 
-import chocola.springai.service.ch11.tools.InternetSearchTools;
+import chocola.springai.service.ch11.tool.InternetSearchTools;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;
 

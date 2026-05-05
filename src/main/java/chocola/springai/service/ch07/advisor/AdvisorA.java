@@ -1,4 +1,4 @@
-package chocola.springai.advisor.ch07;
+package chocola.springai.service.ch07.advisor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.client.ChatClientRequest;
@@ -10,7 +10,7 @@ import org.springframework.ai.chat.client.advisor.api.StreamAdvisorChain;
 import reactor.core.publisher.Flux;
 
 @Slf4j
-public class AdvisorB implements CallAdvisor, StreamAdvisor {
+public class AdvisorA implements CallAdvisor, StreamAdvisor {
 
     @Override
     public ChatClientResponse adviseCall(ChatClientRequest chatClientRequest, CallAdvisorChain callAdvisorChain) {
@@ -35,6 +35,6 @@ public class AdvisorB implements CallAdvisor, StreamAdvisor {
 
     @Override
     public int getOrder() {
-        return 2;
+        return 1;
     }
 }

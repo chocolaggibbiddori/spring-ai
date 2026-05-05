@@ -1,6 +1,6 @@
 package chocola.springai.service.ch07;
 
-import chocola.springai.advisor.ch07.MaxCharLengthAdvisor;
+import chocola.springai.service.ch07.advisor.MaxCharLengthAdvisor;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;
 

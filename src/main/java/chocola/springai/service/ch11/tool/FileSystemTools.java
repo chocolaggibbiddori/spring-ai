@@ -1,4 +1,4 @@
-package chocola.springai.service.ch11.tools;
+package chocola.springai.service.ch11.tool;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

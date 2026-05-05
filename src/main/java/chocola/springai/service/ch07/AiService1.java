@@ -1,8 +1,8 @@
 package chocola.springai.service.ch07;
 
-import chocola.springai.advisor.ch07.AdvisorA;
-import chocola.springai.advisor.ch07.AdvisorB;
-import chocola.springai.advisor.ch07.AdvisorC;
+import chocola.springai.service.ch07.advisor.AdvisorA;
+import chocola.springai.service.ch07.advisor.AdvisorB;
+import chocola.springai.service.ch07.advisor.AdvisorC;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;

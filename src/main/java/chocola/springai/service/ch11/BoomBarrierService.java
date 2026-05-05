@@ -1,7 +1,7 @@
 package chocola.springai.service.ch11;
 
-import chocola.springai.service.ch11.tools.BoomBarrierTools;
-import chocola.springai.service.ch11.tools.CarCheckTools;
+import chocola.springai.service.ch11.tool.BoomBarrierTools;
+import chocola.springai.service.ch11.tool.CarCheckTools;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.messages.UserMessage;
 import org.springframework.ai.content.Media;

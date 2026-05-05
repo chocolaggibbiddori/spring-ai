@@ -1,6 +1,6 @@
 package chocola.springai.service.ch11;
 
-import chocola.springai.service.ch11.tools.RecommendMovieTools;
+import chocola.springai.service.ch11.tool.RecommendMovieTools;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package chocola.springai.service.ch11.tools;
+package chocola.springai.service.ch11.tool;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

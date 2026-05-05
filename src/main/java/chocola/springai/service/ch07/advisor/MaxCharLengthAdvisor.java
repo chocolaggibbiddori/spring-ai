@@ -1,4 +1,4 @@
-package chocola.springai.advisor.ch07;
+package chocola.springai.service.ch07.advisor;
 
 import org.springframework.ai.chat.client.ChatClientRequest;
 import org.springframework.ai.chat.client.ChatClientResponse;
