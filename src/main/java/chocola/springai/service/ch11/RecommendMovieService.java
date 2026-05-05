@@ -18,6 +18,11 @@ public class RecommendMovieService {
     public String chat(String question) {
         return chatClient
                 .prompt(question)
+                .system("""
+                        질문에 대해 답변해 주세요.
+                        사용자 ID가 존재하지 않을 경우, 진행을 멈추고,
+                        '[LLM] 질문을 처리할 수 없습니다.'라고 답변해 주세요.
+                        """)
                 .tools(recommendMovieTools)
                 .call()
                 .content();

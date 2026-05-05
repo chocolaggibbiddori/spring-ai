@@ -32,4 +32,13 @@ public class AiController {
     public String recommendMovieTools(@RequestParam String question) {
         return recommendMovieService.chat(question);
     }
+
+    @PostMapping("/exception-handling")
+    public String exceptionHandling(@RequestParam String question) {
+        try {
+            return recommendMovieService.chat(question);
+        } catch (Exception e) {
+            return "[APP] 질문을 처리할 수 없습니다.";
+        }
+    }
 }

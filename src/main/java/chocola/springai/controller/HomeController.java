@@ -235,4 +235,9 @@ public class HomeController {
     public String recommendMovieTools() {
         return "ch11/recommend-movie-tools";
     }
+
+    @GetMapping("/exception-handling")
+    public String exceptionHandling() {
+        return "ch11/exception-handling";
+    }
 }

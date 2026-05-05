@@ -69,3 +69,5 @@ spring:
             keyspace: spring_ai
             table: chat_memory
             time-to-live: 3600s
+    tools:
+      throw-exception-on-error: true

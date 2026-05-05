@@ -12,8 +12,7 @@ public class RecommendMovieTools {
 
     @Tool(description = "사용자가 관람한 영화 목록을 제공합니다.")
     public List<String> getMovieListByUserId(@ToolParam(description = "사용자 ID") String userId) {
-        log.info("Fetching movie list for user: {}", userId);
-        return List.of("트랜스포머", "인터스텔라", "관상", "귀멸의 칼날", "어벤져스");
+        throw new RuntimeException("사용자 ID가 존재하지 않습니다.");
     }
 
     @Tool(description = "주어진 장르의 추천 영화 목록을 제공합니다.", returnDirect = true)
