@@ -1,13 +1,16 @@
 package chocola.springai.controller.ch11;
 
+import chocola.springai.service.ch11.BoomBarrierService;
 import chocola.springai.service.ch11.DateTimeService;
 import chocola.springai.service.ch11.HeatingSystemService;
 import chocola.springai.service.ch11.RecommendMovieService;
+import java.io.IOException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController("aiController-ch11")
 @RequestMapping("/ai")
@@ -17,6 +20,7 @@ public class AiController {
     private final DateTimeService dateTimeService;
     private final HeatingSystemService heatingSystemService;
     private final RecommendMovieService recommendMovieService;
+    private final BoomBarrierService boomBarrierService;
 
     @PostMapping("/date-time-tools")
     public String dateTimeTools(@RequestParam String question) {
@@ -40,5 +44,13 @@ public class AiController {
         } catch (Exception e) {
             return "[APP] 질문을 처리할 수 없습니다.";
         }
+    }
+
+    @PostMapping("/boom-barrier-tools")
+    public String boomBarrierTools(@RequestParam MultipartFile attach) throws IOException {
+        String contentType = attach.getContentType();
+        byte[] bytes = attach.getBytes();
+
+        return boomBarrierService.chat(contentType, bytes);
     }
 }

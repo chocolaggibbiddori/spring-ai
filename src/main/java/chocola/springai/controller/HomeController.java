@@ -240,4 +240,9 @@ public class HomeController {
     public String exceptionHandling() {
         return "ch11/exception-handling";
     }
+
+    @GetMapping("/boom-barrier-tools")
+    public String boomBarrierTools() {
+        return "ch11/boom-barrier-tools";
+    }
 }
