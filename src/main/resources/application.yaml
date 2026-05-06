@@ -6,11 +6,9 @@ logging:
   level:
     org:
       springframework:
-        ai:
-          chat:
-            client:
-              advisor: DEBUG
-          tool: DEBUG
+        ai: DEBUG
+    io:
+      modelcontextprotocol: DEBUG
 spring:
   application:
     name: springai
@@ -71,6 +69,10 @@ spring:
             time-to-live: 3600s
     tools:
       throw-exception-on-error: true
+    mcp:
+      client:
+        stdio:
+          servers-configuration: classpath:mcp-servers.json
 serpapi:
   endpoint: https://serpapi.com/search
   api-key: ${SERPAPI_API_KEY}

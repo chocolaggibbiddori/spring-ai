@@ -1,0 +1,32 @@
+{
+  "mcpServers": {
+    "mcp-server-datetime": {
+      "command": "java",
+      "args": [
+        "-jar",
+        "/Users/kangdonghee/Desktop/study/self_study/spring-ai/project/mcp-server-datetime/build/libs/mcp-server-datetime-0.0.1-SNAPSHOT.jar"
+      ]
+    },
+    "mcp-server-filesystem": {
+      "command": "java",
+      "args": [
+        "-jar",
+        "/Users/kangdonghee/Desktop/study/self_study/spring-ai/project/mcp-server-filesystem/build/libs/mcp-server-filesystem-0.0.1-SNAPSHOT.jar"
+      ]
+    },
+    "mcp-server-internetsearch": {
+      "command": "java",
+      "args": [
+        "-jar",
+        "/Users/kangdonghee/Desktop/study/self_study/spring-ai/project/mcp-server-internetsearch/build/libs/mcp-server-internetsearch-0.0.1-SNAPSHOT.jar"
+      ]
+    },
+    "mcp-server-boombarrier": {
+      "command": "java",
+      "args": [
+        "-jar",
+        "/Users/kangdonghee/Desktop/study/self_study/spring-ai/project/mcp-server-boombarrier/build/libs/mcp-server-boombarrier-0.0.1-SNAPSHOT.jar"
+      ]
+    }
+  }
+}

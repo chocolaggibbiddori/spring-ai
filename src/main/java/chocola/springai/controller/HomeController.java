@@ -255,4 +255,14 @@ public class HomeController {
     public String internetSearchTools() {
         return "ch11/internet-search-tools";
     }
+
+    @GetMapping("/mcp-chat")
+    public String mcpChat() {
+        return "ch12/chat";
+    }
+
+    @GetMapping("/mcp-boom-barrier")
+    public String mcpBoomBarrier() {
+        return "ch12/boom-barrier";
+    }
 }
