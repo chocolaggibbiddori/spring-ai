@@ -35,7 +35,7 @@ dependencies {
     implementation 'org.springframework.ai:spring-ai-tika-document-reader'
     implementation 'org.springframework.ai:spring-ai-jsoup-document-reader'
     implementation 'org.springframework.ai:spring-ai-rag'
-    implementation 'org.springframework.ai:spring-ai-starter-mcp-client'
+    implementation 'org.springframework.ai:spring-ai-starter-mcp-client-webflux'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'

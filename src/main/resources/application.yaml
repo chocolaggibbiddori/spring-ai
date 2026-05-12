@@ -15,11 +15,13 @@ spring:
   output:
     ansi:
       enabled: always
-  servlet:
-    multipart:
-      enabled: true
-      max-file-size: 10MB
-      max-request-size: 15MB
+#  servlet:
+#    multipart:
+#      enabled: true
+#      max-file-size: 10MB
+#      max-request-size: 15MB
+  main:
+    web-application-type: reactive
   autoconfigure:
     exclude: org.springframework.ai.model.chat.memory.repository.jdbc.autoconfigure.JdbcChatMemoryRepositoryAutoConfiguration
   datasource:
@@ -73,8 +75,8 @@ spring:
       client:
         sse:
           connections:
-            server1:
-              url: http://localhost:8081
+            server2:
+              url: http://localhost:8082
 serpapi:
   endpoint: https://serpapi.com/search
   api-key: ${SERPAPI_API_KEY}

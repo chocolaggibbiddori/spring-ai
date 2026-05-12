@@ -1,13 +1,13 @@
 package chocola.springai.controller.ch12;
 
 import chocola.springai.service.ch12.AiService;
-import java.io.IOException;
+import java.util.Map;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.core.io.buffer.DataBuffer;
+import org.springframework.core.io.buffer.DataBufferUtils;
+import org.springframework.http.codec.multipart.FilePart;
+import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 
 @RestController("aiController-ch12")
 @RequestMapping("/ai")
@@ -17,15 +17,27 @@ public class AiController {
     private final AiService aiService;
 
     @PostMapping("/mcp-chat")
-    public String mcpChat(@RequestParam String question) {
-        return aiService.chat(question);
+    public Flux<String> mcpChat(@RequestBody Map<String, String> map) {
+        return aiService.chat(map.get("question"));
     }
 
     @PostMapping("/mcp-boom-barrier")
-    public String mcpBoomBarrier(@RequestParam MultipartFile attach) throws IOException {
-        String contentType = attach.getContentType();
-        byte[] bytes = attach.getBytes();
+    public Flux<String> mcpBoomBarrier(@RequestPart FilePart attach) {
+        String contentType = attach.headers().getContentType().toString();
+        Flux<DataBuffer> content = attach.content();
 
-        return aiService.boomBarrier(contentType, bytes);
+        return DataBufferUtils
+                .join(content)
+                .flatMapMany(buffer -> {
+                    try {
+                        int size = buffer.readableByteCount();
+                        byte[] bytes = new byte[size];
+                        buffer.read(bytes);
+
+                        return aiService.boomBarrier(contentType, bytes);
+                    } finally {
+                        DataBufferUtils.release(buffer);
+                    }
+                });
     }
 }

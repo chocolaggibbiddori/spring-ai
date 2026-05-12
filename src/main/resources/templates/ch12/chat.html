@@ -26,11 +26,10 @@
 				// AJAX 요청하고 응답받기
 				const response = await fetch('/ai/mcp-chat', {
 				  method: "post",
-					headers: {
-					  'Content-Type': 'application/x-www-form-urlencoded',
-					  'Accept': 'text/plain'
-					},
-				  body: new URLSearchParams({ question })
+          headers: {
+            'Content-Type': 'application/json'
+          },
+				  body: JSON.stringify({ question })
 				});
 
         // AI 모델 답변이 들어갈 위치를 대화 패널에 추가
