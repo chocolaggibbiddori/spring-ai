@@ -71,8 +71,10 @@ spring:
       throw-exception-on-error: true
     mcp:
       client:
-        stdio:
-          servers-configuration: classpath:mcp-servers.json
+        sse:
+          connections:
+            server1:
+              url: http://localhost:8081
 serpapi:
   endpoint: https://serpapi.com/search
   api-key: ${SERPAPI_API_KEY}
