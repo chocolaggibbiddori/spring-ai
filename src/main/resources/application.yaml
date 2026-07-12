@@ -21,7 +21,7 @@ spring:
 #      max-file-size: 10MB
 #      max-request-size: 15MB
   main:
-    web-application-type: reactive
+    web-application-type: servlet
   autoconfigure:
     exclude: org.springframework.ai.model.chat.memory.repository.jdbc.autoconfigure.JdbcChatMemoryRepositoryAutoConfiguration
   datasource:
@@ -71,12 +71,12 @@ spring:
             time-to-live: 3600s
     tools:
       throw-exception-on-error: true
-    mcp:
-      client:
-        sse:
-          connections:
-            server2:
-              url: http://localhost:8082
+#    mcp:
+#      client:
+#        sse:
+#          connections:
+#            server2:
+#              url: http://localhost:8082
 serpapi:
   endpoint: https://serpapi.com/search
   api-key: ${SERPAPI_API_KEY}
