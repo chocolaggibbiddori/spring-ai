@@ -265,4 +265,9 @@ public class HomeController {
     public String mcpBoomBarrier() {
         return "ch12/boom-barrier";
     }
+
+    @GetMapping("/exam01-weather-agent")
+    public String exam01WeatherAgent() {
+        return "ch13/exam01-weather-agent";
+    }
 }
