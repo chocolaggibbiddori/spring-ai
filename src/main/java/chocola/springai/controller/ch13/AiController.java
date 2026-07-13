@@ -3,6 +3,7 @@ package chocola.springai.controller.ch13;
 import chocola.springai.service.ch13.Exam01WeatherAgent;
 import chocola.springai.service.ch13.Exam02WeatherAgent;
 import chocola.springai.service.ch13.Exam03WeatherAgent;
+import chocola.springai.service.ch13.Exam04WeatherAgent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ public class AiController {
     private final Exam01WeatherAgent exam01WeatherAgent;
     private final Exam02WeatherAgent exam02WeatherAgent;
     private final Exam03WeatherAgent exam03WeatherAgent;
+    private final Exam04WeatherAgent exam04WeatherAgent;
 
     @PostMapping("/exam01-weather-agent")
     public String exam01WeatherAgent(@RequestParam String question) {
@@ -31,5 +33,10 @@ public class AiController {
     @PostMapping("/exam03-weather-agent")
     public String exam03WeatherAgent(@RequestParam String question) {
         return exam03WeatherAgent.execute(question);
+    }
+
+    @PostMapping("/exam04-weather-agent")
+    public String exam04WeatherAgent(@RequestParam String conversationId, @RequestParam String question) {
+        return exam04WeatherAgent.execute(conversationId, question);
     }
 }

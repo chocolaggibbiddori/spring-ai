@@ -54,6 +54,6 @@ public class CityValidationAdvisor implements CallAdvisor {
 
     @Override
     public int getOrder() {
-        return Ordered.HIGHEST_PRECEDENCE;
+        return Ordered.LOWEST_PRECEDENCE;
     }
 }
