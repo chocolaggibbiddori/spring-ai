@@ -300,4 +300,9 @@ public class HomeController {
     public String exam07AccommodationAgent() {
         return "ch13/exam07-accommodation-agent";
     }
+
+    @GetMapping("/exam08-youtube-search-agent")
+    public String exam08YoutubeSearchAgent() {
+        return "ch13/exam08-youtube-search-agent";
+    }
 }

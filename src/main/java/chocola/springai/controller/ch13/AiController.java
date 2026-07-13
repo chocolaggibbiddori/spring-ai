@@ -4,6 +4,7 @@ import chocola.springai.service.ch13.agent.*;
 import chocola.springai.service.ch13.dto.Accommodation;
 import chocola.springai.service.ch13.dto.Attraction;
 import chocola.springai.service.ch13.dto.Restaurant;
+import chocola.springai.service.ch13.dto.Youtube;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,7 @@ public class AiController {
     private final Exam05AttractionAgent exam05AttractionAgent;
     private final Exam06RestaurantAgent exam06RestaurantAgent;
     private final Exam07AccommodationAgent exam07AccommodationAgent;
+    private final Exam08YoutubeSearchAgent exam08YoutubeSearchAgent;
 
     @PostMapping("/exam01-weather-agent")
     public String exam01WeatherAgent(@RequestParam String question) {
@@ -57,5 +59,10 @@ public class AiController {
     @PostMapping("/exam07-accommodation-agent")
     public List<Accommodation> exam07AccommodationAgent(@RequestParam String question) {
         return exam07AccommodationAgent.execute(question);
+    }
+
+    @PostMapping("/exam08-youtube-search")
+    public List<Youtube> exam08YoutubeSearchAgent(@RequestParam String question) {
+        return exam08YoutubeSearchAgent.execute(question);
     }
 }
