@@ -275,4 +275,9 @@ public class HomeController {
     public String exam02WeatherAgent() {
         return "ch13/exam02-weather-agent";
     }
+
+    @GetMapping("/exam03-weather-agent")
+    public String exam03WeatherAgent() {
+        return "ch13/exam03-weather-agent";
+    }
 }
