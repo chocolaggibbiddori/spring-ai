@@ -1,4 +1,4 @@
-package chocola.springai.service.ch13;
+package chocola.springai.service.ch13.agent;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.tool.annotation.Tool;

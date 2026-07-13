@@ -1,5 +1,6 @@
-package chocola.springai.service.ch13;
+package chocola.springai.service.ch13.agent;
 
+import chocola.springai.service.ch13.advisor.CityValidationAdvisor;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import org.springframework.ai.chat.client.ChatClient;

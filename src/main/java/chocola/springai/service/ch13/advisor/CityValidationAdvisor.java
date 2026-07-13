@@ -1,4 +1,4 @@
-package chocola.springai.service.ch13;
+package chocola.springai.service.ch13.advisor;
 
 import static java.util.stream.Collectors.joining;
 
