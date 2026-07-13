@@ -295,4 +295,9 @@ public class HomeController {
     public String exam06RestaurantAgent() {
         return "ch13/exam06-restaurant-agent";
     }
+
+    @GetMapping("/exam07-accommodation-agent")
+    public String exam07AccommodationAgent() {
+        return "ch13/exam07-accommodation-agent";
+    }
 }

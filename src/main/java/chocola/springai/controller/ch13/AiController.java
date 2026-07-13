@@ -1,6 +1,7 @@
 package chocola.springai.controller.ch13;
 
 import chocola.springai.service.ch13.agent.*;
+import chocola.springai.service.ch13.dto.Accommodation;
 import chocola.springai.service.ch13.dto.Attraction;
 import chocola.springai.service.ch13.dto.Restaurant;
 import java.util.List;
@@ -21,6 +22,7 @@ public class AiController {
     private final Exam04WeatherAgent exam04WeatherAgent;
     private final Exam05AttractionAgent exam05AttractionAgent;
     private final Exam06RestaurantAgent exam06RestaurantAgent;
+    private final Exam07AccommodationAgent exam07AccommodationAgent;
 
     @PostMapping("/exam01-weather-agent")
     public String exam01WeatherAgent(@RequestParam String question) {
@@ -50,5 +52,10 @@ public class AiController {
     @PostMapping("/exam06-restaurant-agent")
     public List<Restaurant> exam06RestaurantAgent(@RequestParam String question) {
         return exam06RestaurantAgent.execute(question);
+    }
+
+    @PostMapping("/exam07-accommodation-agent")
+    public List<Accommodation> exam07AccommodationAgent(@RequestParam String question) {
+        return exam07AccommodationAgent.execute(question);
     }
 }
