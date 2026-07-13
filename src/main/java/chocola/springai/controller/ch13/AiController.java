@@ -2,6 +2,7 @@ package chocola.springai.controller.ch13;
 
 import chocola.springai.service.ch13.agent.*;
 import chocola.springai.service.ch13.dto.Attraction;
+import chocola.springai.service.ch13.dto.Restaurant;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ public class AiController {
     private final Exam03WeatherAgent exam03WeatherAgent;
     private final Exam04WeatherAgent exam04WeatherAgent;
     private final Exam05AttractionAgent exam05AttractionAgent;
+    private final Exam06RestaurantAgent exam06RestaurantAgent;
 
     @PostMapping("/exam01-weather-agent")
     public String exam01WeatherAgent(@RequestParam String question) {
@@ -43,5 +45,10 @@ public class AiController {
     @PostMapping("/exam05-attraction-agent")
     public List<Attraction> exam05AttractionAgent(@RequestParam String question) {
         return exam05AttractionAgent.execute(question);
+    }
+
+    @PostMapping("/exam06-restaurant-agent")
+    public List<Restaurant> exam06RestaurantAgent(@RequestParam String question) {
+        return exam06RestaurantAgent.execute(question);
     }
 }
