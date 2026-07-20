@@ -1,5 +1,6 @@
 package chocola.springai.service.ch13.agent;
 
+import chocola.springai.dto.ch14.PlanState;
 import chocola.springai.service.ch13.dto.Accommodation;
 import chocola.springai.service.ch13.service.InternetSearchService;
 import java.util.ArrayList;
@@ -73,6 +74,16 @@ public class Exam07AccommodationAgent {
         List<Accommodation> result = callAsEntity(userMessage);
         // LLM 출력이 완벽하지 않은 경우를 대비해 pricePerNight 보정
         return normalize(result);
+    }
+
+    public void execute(PlanState state) {
+        String query = state.isReplan()
+                ? String.format("%s 가성비 저렴한 숙소 추천", state.getDestination())
+                : String.format("%s 숙소 추천", state.getDestination());
+
+        List<Accommodation> accommodations = execute(query);
+
+        state.setAccommodations(accommodations);
     }
 
     //-----------------------------------------------------------------------------------

@@ -1,5 +1,6 @@
 package chocola.springai.service.ch13.agent;
 
+import chocola.springai.dto.ch14.PlanState;
 import chocola.springai.service.ch13.dto.Attraction;
 import chocola.springai.service.ch13.service.InternetSearchService;
 import java.util.ArrayList;
@@ -67,6 +68,16 @@ public class Exam05AttractionAgent {
         List<Attraction> result = callAsEntity(userMessage);
 
         return normalize(result);
+    }
+
+    public void execute(PlanState state) {
+        String query = state.isReplan()
+                ? String.format("%s 가성비 저렴한 관광지 추천", state.getDestination())
+                : String.format("%s 관광지 추천", state.getDestination());
+
+        List<Attraction> attractions = execute(query);
+
+        state.setAttractions(attractions);
     }
 
     //-----------------------------------------------------------------------------------

@@ -1,5 +1,7 @@
 package chocola.springai.service.ch13.agent;
 
+import chocola.springai.dto.ch14.PlanState;
+import chocola.springai.service.ch13.dto.Accommodation;
 import chocola.springai.service.ch13.dto.Restaurant;
 import chocola.springai.service.ch13.service.InternetSearchService;
 import java.util.*;
@@ -72,6 +74,16 @@ public class Exam06RestaurantAgent {
 
         // 중복 제거 + price 보정
         return normalize(deduplicateByName(result));
+    }
+
+    public void execute(PlanState state) {
+        String query = state.isReplan()
+                ? String.format("%s 가성비 저렴한 맛집 추천", state.getDestination())
+                : String.format("%s 맛집 추천", state.getDestination());
+
+        List<Restaurant> restaurants = execute(query);
+
+        state.setRestaurants(restaurants);
     }
 
     // LLM 호출 + 엔티티 변환(실패 시 1회 보정 재시도)
